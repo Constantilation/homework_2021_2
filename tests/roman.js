@@ -37,4 +37,10 @@ QUnit.module('Тестируем функцию roman', function () {
 		assert.strictEqual(roman('1990'), 'MCMXC');
 		assert.strictEqual(roman('2017'), 'MMXVII');
 	});
+
+	QUnit.test('roman правильно определяет, что был передан не объект и не массив', function (assert) {
+		assert.strictEqual(roman({key: '1904'}), '');
+		assert.strictEqual(roman(['1990']), '');
+		assert.strictEqual(roman([123]), '');
+	});
 });
