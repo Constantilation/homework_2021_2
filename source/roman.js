@@ -3,19 +3,19 @@
 let toRoman = (number) => {
     let roman = '';
     const romanNumList = {M:1000,CM:900, D:500,CD:400, C:100, XC:90,L:50, XV: 40, X:10, IX:9, V:5, IV:4, I:1};
-    if(number < 1 || number > 3999)
+    if(number < 1 || number > 3999) {
         return 'Enter a number between 1 and 3999';
-    else{
-        Object.entries(romanNumList).forEach(([key, value]) => {
-            let a = Math.floor(number / value);
-            if(a >= 0) {
-                for(let i = 0; i < a; i++) {
+    }
+
+    Object.entries(romanNumList).forEach(([key, value]) => {
+            let largest = Math.floor(number / value);
+            if(largest >= 0) {
+                for(let i = 0; i < largest; i++) {
                     roman += key;
                 }
             }
             number = number % value;
         })
-    }
 
     return roman;
 }
@@ -36,19 +36,13 @@ let toArab = (romanNumber) => {
     return num;
 }
 
-function roman(value) {
+let roman = (value) => {
     if (typeof value != 'number' && typeof value != 'string') {
         return '';
     }
 
-    let res = false;
-    if (Number.isInteger(value)) {
-        res = true
-    } else {
-        if (parseInt(value)) {
-            res = true
-        }
+    if (Number.isInteger(parseInt(value))) {
+        return toRoman(parseInt(value));
     }
-    if (res) return toRoman(parseInt(value));
-    else return toArab(value);
+        return toArab(value);
 }
