@@ -1,5 +1,9 @@
 'use strict'
 
+const romanNumMap = {M:1000,CM:900, D:500,CD:400, C:100, XC:90,L:50, XV: 40, X:10, IX:9, V:5, IV:4, I:1};
+const romanNumList = ['CM','M','CD','D','XC','C','XL','L','IX','X','IV','V','I'];
+const corresp = [900,1000,400,500,90,100,40,50,9,10,4,5,1];
+
 /**
  * Converting arabic number into roman number
  *
@@ -10,20 +14,19 @@
 
 const toRoman = (arabicNumber) => {
     let roman = '';
-    const romanNumList = {M:1000,CM:900, D:500,CD:400, C:100, XC:90,L:50, XV: 40, X:10, IX:9, V:5, IV:4, I:1};
     if(arabicNumber < 1 || arabicNumber > 3999) {
         return 'Enter a number between 1 and 3999';
     }
 
-    Object.entries(romanNumList).forEach(([key, value]) => {
-            let largest = Math.floor(arabicNumber / value);
+    Object.entries(romanNumMap).forEach(([key, value]) => {
+            const largest = Math.floor(arabicNumber / value);
             if(largest >= 0) {
                 for(let i = 0; i < largest; i++) {
                     roman += key;
                 }
             }
             arabicNumber = arabicNumber % value;
-        })
+        });
 
     return roman;
 }
@@ -37,18 +40,16 @@ const toRoman = (arabicNumber) => {
  */
 
 const toArab = (romanNumber) => {
-    romanNumber = romanNumber.toUpperCase();
-    const romanNumList = ['CM','M','CD','D','XC','C','XL','L','IX','X','IV','V','I'];
-    const corresp = [900,1000,400,500,90,100,40,50,9,10,4,5,1];
+    let romanNumberUpper = romanNumber.toUpperCase();
     let index =  0, num = 0;
     romanNumList.forEach((value, key) => {
-            index = romanNumber.indexOf(value);
+            index = romanNumberUpper.indexOf(value);
             while(index !== -1) {
                 num += parseInt(corresp[key]);
-                romanNumber = romanNumber.replace(value,'-');
-                index = romanNumber.indexOf(value);
+                romanNumberUpper = romanNumberUpper.replace(value,'-');
+                index = romanNumberUpper.indexOf(value);
             }
-    })
+    });
     return num;
 }
 
@@ -69,5 +70,6 @@ const roman = (value) => {
     if (Number.isInteger(parseInt(value))) {
         return toRoman(parseInt(value));
     }
-        return toArab(value);
+
+    return toArab(value);
 }

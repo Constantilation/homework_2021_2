@@ -42,5 +42,7 @@ QUnit.module('Тестируем функцию roman', function () {
 		assert.strictEqual(roman({key: '1904'}), '');
 		assert.strictEqual(roman(['1990']), '');
 		assert.strictEqual(roman([123]), '');
+		assert.strictEqual(roman(['I']), '');
+		assert.strictEqual(roman({key: 'I'}), '');
 	});
 });
