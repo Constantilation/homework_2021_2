@@ -41,9 +41,9 @@ const toRoman = (arabicNumber) => {
 
 const toArab = (romanNumber) => {
     let romanNumberUpper = romanNumber.toUpperCase();
-    let index =  0, num = 0;
+    let num = 0;
     romanNumList.forEach((value, key) => {
-            index = romanNumberUpper.indexOf(value);
+            let index = romanNumberUpper.indexOf(value);
             while(index !== -1) {
                 num += parseInt(corresp[key]);
                 romanNumberUpper = romanNumberUpper.replace(value,'-');
@@ -55,7 +55,7 @@ const toArab = (romanNumber) => {
 
 
 /**
- * Converting roman number into arabic number
+ * Converting roman/arabic number into arabic/roman number
  *
  * @param {int | string} value int roman number or string arabic number need to be converted
  * @returns {int | string} roman number, if value is arabic number. Arabic number, if value is
