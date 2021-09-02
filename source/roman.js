@@ -7,7 +7,7 @@ const corresp = [900,1000,400,500,90,100,40,50,9,10,4,5,1];
 /**
  * Converting arabic number into roman number
  *
- * @param {int} arabicNumber number from arabic numbers that need to be converted into roman number
+ * @param {number} arabicNumber number from arabic numbers that need to be converted into roman number
  * @returns {string} roman number or string with error, if number is more than 3999
  * or less than 1
  */
@@ -35,7 +35,7 @@ const toRoman = (arabicNumber) => {
  * Converting roman number into arabic number
  *
  * @param {string} romanNumber number from arabic numbers that need to be converted into roman number
- * @returns {int} roman number or 0, if number is more than 3999
+ * @returns {number} roman number or 0, if number is more than 3999
  * or less than 1
  */
 
@@ -57,13 +57,13 @@ const toArab = (romanNumber) => {
 /**
  * Converting roman/arabic number into arabic/roman number
  *
- * @param {int | string} value int roman number or string arabic number need to be converted
- * @returns {int | string} roman number, if value is arabic number. Arabic number, if value is
+ * @param {number | string} value int roman number or string arabic number need to be converted
+ * @returns {number | string} roman number, if value is arabic number. Arabic number, if value is
  * roman number. Empty string if value is incorrect
  */
 
 const roman = (value) => {
-    if (typeof value != 'number' && typeof value != 'string') {
+    if (typeof value !== 'number' && typeof value !== 'string') {
         return '';
     }
 
