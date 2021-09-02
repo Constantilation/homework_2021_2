@@ -57,7 +57,7 @@ const toArab = (romanNumber) => {
 /**
  * Converting roman/arabic number into arabic/roman number
  *
- * @param {number | string} value int roman number or string arabic number need to be converted
+ * @param {number | string} value number roman number or string arabic number need to be converted
  * @returns {number | string} roman number, if value is arabic number. Arabic number, if value is
  * roman number. Empty string if value is incorrect
  */
