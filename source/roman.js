@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const romanNumMap = {M:1000,CM:900, D:500,CD:400, C:100, XC:90,L:50, XV: 40, X:10, IX:9, V:5, IV:4, I:1};
 const romanNumList = ['CM','M','CD','D','XC','C','XL','L','IX','X','IV','V','I'];
@@ -29,7 +29,7 @@ const toRoman = (arabicNumber) => {
         });
 
     return roman;
-}
+};
 
 /**
  * Converting roman number into arabic number
@@ -51,7 +51,7 @@ const toArab = (romanNumber) => {
             }
     });
     return num;
-}
+};
 
 
 /**
@@ -72,4 +72,4 @@ const roman = (value) => {
     }
 
     return toArab(value);
-}
+};
